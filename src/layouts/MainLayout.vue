@@ -6,7 +6,7 @@
     bordered
     class="bg-menubar-custom"
     >
-      <q-list class="mt-120" >
+      <q-list style="margin-top: 160px">
         <EssentialLink
         v-for="link in essentialLinks"
         :key="link.title"

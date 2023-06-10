@@ -5,39 +5,42 @@
       <q-card class="card-add">
         <div class="modal_inner">
           <q-card-section style="padding-left: 0px;">
-            <div class="text-h6" ><q-icon name="add_circle_outline"  class="cross-icon"/>Add Misify</div>
+            <div class="text-h6" >
+              <q-icon name="add_circle_outline" class="cross-icon add-circle-outline"/>
+              Add Misify
+            </div>
           </q-card-section>
           <div>
             <div class="modal-what">
               <div v-if="nexton==1" >
                 <q-card-section class="q-pt-none">
                   Name
-                  <q-input filled v-model="text" label="Filled" />
+                  <q-input filled v-model="text" label="Type name" />
                 </q-card-section>
                 <q-card-section class="q-pt-none">
                   Limit
                   <div class="rows">
-                    <q-input filled v-model="text" class="limit-in" label="Filled" />
-                    <q-select class="limit-sel" filled v-model="model" :options="modaloptions" label="Filled" />
+                    <q-input filled v-model="text" class="limit-in" label="10" />
+                    <q-select class="limit-sel" filled v-model="model" :options="modaloptions" label="Days" />
                   </div>
               </q-card-section>
               </div>
               <div v-else-if="nexton==2">
                 <q-card-section class="q-pt-none">
                   Type
-                  <q-select class="doneinput" filled v-model="model" :options="modaloptions" label="Filled" />
+                  <q-select class="doneinput" filled v-model="model" :options="modaloptions" label="Stripe PayPal" />
                 </q-card-section>
                 <q-card-section class="q-pt-none">
                   API UserName
-                  <q-input filled v-model="text" label="Filled" class="doneinput"/>
+                  <q-input filled v-model="text" label="Type API user name" class="doneinput"/>
                 </q-card-section>
                 <q-card-section class="q-pt-none">
                   API Password
-                  <q-input filled v-model="text" label="Filled" class="doneinput"/>
+                  <q-input filled v-model="text" label="Type API Password" class="doneinput"/>
                 </q-card-section>
                 <q-card-section class="q-pt-none">
                   Currency
-                  <q-select class="doneinput" filled v-model="model" :options="modaloptions" label="Filled" />
+                  <q-select class="doneinput" filled v-model="model" :options="modaloptions" label="Euro" />
                 </q-card-section>
               </div>
             </div>
@@ -52,7 +55,7 @@
       </q-card>
     </q-dialog>
     <div class="row justify-between" style="border-bottom: solid 1px #F3F3F5;">
-      <div  class="searchpage">
+      <div>
         <input type="search" class="search" placeholder="Search" >
         <q-icon name="search" class="search-icon" />
       </div>
@@ -73,11 +76,11 @@
         <h5 class="page-name" >Midsify</h5>
         <div class="mytooltip">
           <div style="">Reserve 160 Days <span style="position: relative;left: 45%;">50K</span></div>
-          <div style="width: 20%;"><q-linear-progress class="sumupprogress" size="25px" :value="sumupprogress" /></div>
+          <div style="width: 286px;"><q-linear-progress class="sumupprogress" size="25px" :value="sumupprogress" /></div>
           <div class="mytext"><div class="sumup-text-up">Release estimate <p class="sumup-text-down">March 4, 2023</p></div></div>
         </div>
         <div>
-          <q-btn  @click="inception=true" icon="add_circle_outline" label="Add"  class="addmidsify"/>
+          <q-btn @click="inception=true" icon="add_circle_outline" label="Add"  class="addmidsify"/>
         </div>
       </div>
       <div class="row">
@@ -90,15 +93,15 @@
         >
           <template v-slot:body="props">
             <q-tr :props="props" class="tr-pro">
-              <q-td key="name" align="center" :props="props" style="width:20%;padding-left: 2%;">
+              <q-td key="name" align="center" :props="props" style="width:20%; padding-left: 2%;">
                 <div class="highlight">{{ props.row.name }}</div>
               </q-td>
-              <q-td key="progress" :props="props" style="width:50%;padding-left: 25px;" >
+              <q-td key="progress" :props="props" style="width:50%; padding-left: 25px;" >
                   <div v-if="props.row.status%2==1">
                     <div class="tooltip">
                       <q-linear-progress size="25px" :value= props.row.progress  color="blue" class="progress">
                         <div class="absolute-full flex flex-center">
-                          <q-badge style="height: 200%; font-style: normal;font-weight: 500;font-size: 14px;line-height: 24px; position:absolute; left:52%;" class="badge-bg" :style="{marginLeft:props.row.progress*100-55+'%'}" color="white" text-color="#000034" :label="progressLabel1"/>
+                          <q-badge style="height: 200%; font-style: normal; font-weight: 500; font-size: 14px; line-height: 24px; position:absolute; left:52%;" class="badge-bg" :style="{marginLeft:props.row.progress*100-55+'%'}" color="white" text-color="#000034" :label="progressLabel1"/>
                         </div>
                       </q-linear-progress>
                       <p class="tooltiptext"  :style="{marginLeft:props.row.progress*50-15+'%'}">{{props.row.uptext}}<br><span class="downspan">{{props.row.downtext}}</span></p>
@@ -108,10 +111,7 @@
                     <div class="tooltip">
                       <q-linear-progress  size="25px" :value= props.row.progress  color="#4EFDEA" class="progress1">
                         <div class="absolute-full flex flex-center">
-                          <q-badge style="height: 200%; font-style: normal;
-font-weight: 500;
-font-size: 14px;
-line-height: 24px; position:absolute; left:52%" :style="{marginLeft:props.row.progress*100-55+'%'}" color="white" text-color="#000034" :label="progressLabel1"/>
+                          <q-badge style="height: 200%; font-style: normal; font-weight: 500; font-size: 14px; line-height: 24px; position:absolute; left:52%" :style="{marginLeft:props.row.progress*100-55+'%'}" color="white" text-color="#000034" :label="progressLabel1"/>
                         </div>
                       </q-linear-progress>
                       <p class="tooltiptext"  :style="{marginLeft:props.row.progress*50-15+'%'}">{{props.row.uptext}}<br><span class="downspan">{{props.row.downtext}}</span></p>
@@ -295,44 +295,44 @@ export default {
   display: flex;
   align-items: center;
   visibility: show;
-  width: 140px;
+  width: 134px;
   color: #fff;
   z-index: 1;
-  bottom: 100%;
-  left:v-bind((sumupprogress * 100-28) + '%');
+  bottom: 75%;
+  left:v-bind((sumupprogress * 100-42) + '%');
   border-radius: 6px;
-  padding: 5px 0;
   position: absolute;
   background-color: white;
   box-shadow: 0px 15px 40px rgba(22, 8, 49, 0.1);
 }
 .mytooltip {
-    position: relative;
-    display: inline-block;
-    margin-top: 50px;
-    margin-right: -60%;
+  position: relative;
+  display: inline-block;
+  margin-top: 50px;
+  margin-right: -54%;
 }
 .mytooltip .mytext:after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -10px;
-    border-width: 7px;
-    border-style: solid;
-    border-color: rgb(255, 255, 255) transparent transparent transparent;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255) transparent transparent transparent;
 }
 .mytooltip:hover .mytext {
-    visibility: visible;
+  visibility: visible;
 }
 .pages{
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width:1280px;
+  min-width:1200px;
 }
 .page-content{
-  width: 95%;
+  width: 1104px;
+  height: 969px;
 }
 .search-icon{
   position: relative;
@@ -342,11 +342,11 @@ export default {
 }
 .downspan{
   font-style: normal;
-font-weight: 600;
-font-size: 12px;
-line-height: 18px;
-text-align: center;
-color: #4B4E68;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 18px;
+  text-align: center;
+  color: #4B4E68;
 }
 .progress .bg-white{
   background:#a4abf1!important;
@@ -399,7 +399,6 @@ color: #4B4E68;
   display: flex;
 }
 .limit-in{
-
   width:80%;
   border-right: 1px solid #D6D8EA;
 }
@@ -409,24 +408,23 @@ color: #4B4E68;
   font-size: 20px;
 }
 .modal_inner{
-  margin-top: 10%;
+  margin-top: 15px;
   width: 90%;
   height: 80%;
 }
 .page-name{
-  line-height: 40px;
   margin-right: 0px;
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
-  line-height: 40px;
   color: #000034;
+  padding-bottom: 5px;
+  line-height: 3px;
 }
 .brand{
   border-radius: 5px;
   height: 40px;
   width: 130px;
-  /* opacity: 0.5; */
   border: 1px solid #e4e4ec;
   padding-left: 10px;
   margin-top: 23px;
@@ -458,7 +456,6 @@ color: #4B4E68;
   border-radius: 16px;
 }
 .sumupprogress .q-linear-progress__model {
-    /* background: radial-gradient(black, transparent); */
     background: linear-gradient(90deg, #4EFDEA 6.67%, #5766FF 92.08%);
 }
 .Next{
@@ -517,7 +514,7 @@ color: #4B4E68;
   background-color: #F3F3F5;
   margin: 20px 0px 20px;
   width: 500px;
-  height: 48px;
+  height: 36px;
   border-radius: 10px;
   border:none;
   padding-left: 20px;
@@ -543,7 +540,6 @@ color: #4B4E68;
   padding-left: 25px;
 }
 .tooltip .tooltiptext {
-  margin-top: 100px;
   min-width: 70px;
   background-color: white;
   box-shadow: 0px 15px 40px rgba(22, 8, 49, 0.1);
@@ -590,7 +586,6 @@ color: #4B4E68;
 }
 .statusfont{
   font-size:19px;
-
 }
 </style>
 <style lang="sass">

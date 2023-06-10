@@ -12,31 +12,29 @@
               <div v-if="nexton==1" >
                 <q-card-section class="q-pt-none">
                   Name
-                  <q-input filled v-model="text" label="Filled" />
+                  <q-input filled v-model="text" label="Type name" />
                 </q-card-section>
                 <q-card-section class="q-pt-none">
                   Limit
-                  <div class="rows"><q-input filled v-model="text" class="limit-in" label="Filled" /><q-select class="limit-sel" filled v-model="model" :options="modaloptions" label="Filled" /></div>
+                  <div class="rows"><q-input filled v-model="text" class="limit-in" label="10" /><q-select class="limit-sel" filled v-model="model" :options="modaloptions" label="Filled" /></div>
               </q-card-section>
               </div>
               <div v-else-if="nexton==2">
                 <q-card-section class="q-pt-none">
                   Type
-                  <!-- <q-input filled v-model="text" label="Filled" class="doneinput"/> -->
-                  <q-select class="doneinput" filled v-model="model" :options="modaloptions" label="Filled" />
+                  <q-select class="doneinput" filled v-model="model" :options="modaloptions" label="Stripe paypal" />
                 </q-card-section>
                 <q-card-section class="q-pt-none">
                   API UserName
-                  <q-input filled v-model="text" label="Filled" class="doneinput"/>
+                  <q-input filled v-model="text" label="Type API user name" class="doneinput"/>
                 </q-card-section>
                 <q-card-section class="q-pt-none">
                   API Password
-                  <q-input filled v-model="text" label="Filled" class="doneinput"/>
+                  <q-input filled v-model="text" label="Type API password" class="doneinput"/>
                 </q-card-section>
                 <q-card-section class="q-pt-none">
                   Currency
-                  <!-- <q-input filled v-model="text" label="Filled" class="doneinput"/> -->
-                  <q-select class="doneinput" filled v-model="model" :options="modaloptions" label="Filled" />
+                  <q-select class="doneinput" filled v-model="model" :options="modaloptions" label="Euro" />
                 </q-card-section>
               </div>
             </div>
